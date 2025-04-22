@@ -1,0 +1,31 @@
+digraph G {
+    graph [rankdir=TB];
+    subgraph cluster_G {
+
+        graph [style="filled,rounded",fillcolor="#80808018", label=""];
+        front [label="front", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="0"];
+        main [label="main", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="1"];
+        front__addChar [label="addChar", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="0"];
+        front__getChar [label="getChar", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="0"];
+        front__getNonBlank [label="getNonBlank", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="0"];
+        front__initialize_lexer [label="initialize_lexer", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="0"];
+        front__is_done [label="is_done", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="0"];
+        front__lex [label="lex", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="0"];
+        front__lookup [label="lookup", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="0"];
+        main__main [label="main", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="1"];
+    }
+        front__getNonBlank -> front__getChar [style="solid", color="#000000"];
+        front__lex -> front__getNonBlank [style="solid", color="#000000"];
+        front__lex -> front__getChar [style="solid", color="#000000"];
+        front__lex -> front__lookup [style="solid", color="#000000"];
+        front__lex -> front__addChar [style="solid", color="#000000"];
+        front__lookup -> front__addChar [style="solid", color="#000000"];
+        front__initialize_lexer -> front__getChar [style="solid", color="#000000"];
+        main -> front__lex [style="solid", color="#000000"];
+        main -> front__initialize_lexer [style="solid", color="#000000"];
+        main -> front__is_done [style="solid", color="#000000"];
+        main -> main__main [style="solid", color="#000000"];
+        main__main -> front__initialize_lexer [style="solid", color="#000000"];
+        main__main -> front__is_done [style="solid", color="#000000"];
+        main__main -> front__lex [style="solid", color="#000000"];
+    }

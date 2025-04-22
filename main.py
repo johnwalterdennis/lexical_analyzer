@@ -1,16 +1,12 @@
-from front import *
+from front import initialize_lexer, lex, nextToken, EOF_TOKEN, is_done
 
-def main(): 
-    with open ('filename.txt','r') as myfile:       
-        data = myfile.read()
-        if(data == None):
-            print("ERROR - cannot open file.txt \n")
-        else:
-            getChar()
-            while True:
-                lex()
-                if (nextToken != EOF):
-                    break
-        
+def main():
+    if initialize_lexer('filename.txt'):
+        print("Starting lexical analysis...")
+
+        while not is_done():
+            lex()
+        print("Lexical analysis complete.")
+
 if __name__ == "__main__":
     main()
