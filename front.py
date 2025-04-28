@@ -1,10 +1,8 @@
-#character classes
 LETTER  = 0
 DIGIT = 1
 UNKNOWN = 99 
 EOF_CLASS = -1
 
-#token codes
 INT_LIT = 10
 IDENT = 11
 ASSIGN_OP =  20
@@ -18,7 +16,7 @@ RIGHT_PAREN = 26
 EOF_TOKEN = -1
 
 
-# Global
+
 charClass  = 0
 lexeme = []   
 nextChar = " "
@@ -70,7 +68,7 @@ def lex():
         print(f"Next token is {nextToken}, Next lexeme is EOF")
         return nextToken
     lexLen = 0
-    lexeme = []  # Reset lexeme
+    lexeme = []  
     
     getNonBlank()
     
@@ -137,7 +135,7 @@ def initialize_lexer(file_path):
             input_text = file.read()
             position = 0
             done = False
-        getChar()  # Initialize the first character
+        getChar()  
         return True
     except Exception as e:
         print(f"Error opening file: {e}")
